@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-3">
+        <img src="{{ newsarticle.image.url }}" width="200" height="150" />
+    </div>
+    <div class="col-md-9">
+        <h4>{{ newsarticle.title }}</h4>
+        <p>{{ newsarticle.body }}</p>
+    </div>
+</div>
+{% endblock %}

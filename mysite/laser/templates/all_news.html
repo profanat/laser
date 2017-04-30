@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Наши новости
+            </div>
+            <div class="panel-body">
+                {% for article in newsarticles %}
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="{% url 'newsarticle_view' article.id %}"><img src="{{ article.image.url }}" width="200" height="150" /></a>
+                        </div>
+                        <div class="col-md-9">
+                            <h4><a href="{% url 'newsarticle_view' article.id %}">{{ article.title }}</a></h4>
+                            <p>{{ article.body }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <hr />
+                <div class="row">
+                    <div class="col-md-12">
+                        <p><a href="#">Все новости</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+{% endblock %}

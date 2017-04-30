@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    <h4>Новые товары</h4>
+    {% for item in new_items %}
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <img src="{{ item.image.url }}" alt="" width="320" height="240">
+            <div class="caption">
+                <h4 class="pull-right">{{item.get_price}}</h4>
+                <h4><a href="{% url 'item_view' item.subcategory.category.id item.subcategory.id item.id %}">{{ item.name }}</a>
+                </h4>
+                <p>{{item.description}}</p>
+            </div>
+            <div class="ratings">
+                <p class="pull-right">15 reviews</p>
+                <p>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
